@@ -1,0 +1,134 @@
+<template>
+
+    <div class="page" data-name="cart">
+
+        <div class="navbar navbar-large">
+
+            <div class="navbar-bg"></div>
+
+            <div class="navbar-inner sliding">
+
+                <div class="title">Избранное</div>
+
+                <div class="title-large">
+
+                    <div class="title-large-text">Избранное</div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="page-content">
+
+            <div class="items">
+
+                <div class="list media-list">
+
+                    <ul>
+
+                        {{#each items}}
+
+                        <li>
+
+                            <div class="item-link item item-content">
+
+                                <div class="item-media margin-top" style="background-image:url({{image}})"></div>
+
+                                <div class="item-inner">
+
+                                    <div class="item-title">
+
+                                        <div>{{title}}</div>
+
+                                    </div>
+
+                                    <div class="item-subtitle margin-top">
+
+                                        <span>{{price}} ₽</span>
+
+                                    </div>
+
+                                    <div class="row margin-top">
+
+                                        <button class="button col no-margin button-fill button-small add-to-cart">В корзину</button>
+
+                                        <button class="button col no-margin button-fill button-small remove color-red">Удалить</button>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </li>
+
+                        {{/each}}
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</template>
+
+<style scoped>
+
+    {{this}} {
+        background: #f9f9f9;
+    }
+
+    {{this}} .item .item-media {
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        width: 100px;
+        height: 100px;
+    }
+
+    {{this}} .item  .item-title {
+                 white-space: normal;
+                 font-size: 14px;
+             }
+
+    {{this}} .item  .item-subtitle span {
+                 font-weight: bold;
+                 font-size: 18px;
+             }
+
+</style>
+
+<script>
+
+    return {
+
+        data: function () {
+
+            return {
+                items: app.data.books.slice(0, 5)
+            }
+
+        },
+        methods: {
+
+        },
+        on: {
+
+            pageInit: function() {
+
+                var component = this;
+                var page = this.$el;
+
+            }
+
+        }
+
+    }
+
+</script>

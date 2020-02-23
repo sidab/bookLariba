@@ -1,0 +1,38 @@
+{
+  "devDependencies": {
+    "cordova-plugin-whitelist": "1.3.4",
+    "cordova-plugin-splashscreen": "5.0.3",
+    "cordova-plugin-inappbrowser": "3.1.0",
+    "cordova-plugin-statusbar": "2.4.3",
+    "cordova-plugin-x-socialsharing": "5.4.0",
+    "cordova-plugin-open-blank": "https://github.com/slaptoast/cordova-plugin-openblank.git",
+    "cordova-plugin-ios-camera-permissions": "1.2.0",
+    "phonegap-plugin-barcodescanner": "8.0.1"
+  },
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-whitelist": {},
+      "cordova-plugin-crosswalk-webview-arm": {},
+      "cordova-plugin-splashscreen": {},
+      "cordova-plugin-inappbrowser": {},
+      "cordova-plugin-statusbar": {},
+      "cordova-plugin-ionic-keyboard": {},
+      "cordova-plugin-x-socialsharing": {},
+      "cordova-plugin-open-blank": {},
+      "cordova-plugin-ios-camera-permissions": {
+        "CAMERA_USAGE_DESCRIPTION": "We are using a camera to photo goods with defect.",
+        "PHOTOLIBRARY_ADD_USAGE_DESCRIPTION": "We are using a camera to photo goods with defect.",
+        "PHOTOLIBRARY_USAGE_DESCRIPTION": "We are using a camera to photo goods with defect."
+      },
+      "phonegap-plugin-barcodescanner": {}
+    },
+    "platforms": [
+      "browser",
+      "ios"
+    ]
+  },
+  "dependencies": {
+    "cordova-browser": "^6.0.0",
+    "cordova-ios": "^5.1.1"
+  }
+}

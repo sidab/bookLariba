@@ -1,0 +1,19 @@
+{
+  "background_color": "#FFF",
+  "display": "standalone",
+  "name": "LaRiba Books",
+  "short_name": "LaRiba Books",
+  "version": "com.book.lariba.ru",
+  "description": "Приложение для книжного магазина LaRiba Book",
+  "author": "Umakhan Magomedov",
+  "icons": [
+    {
+      "src": "www/icon.png",
+      "type": "image/png",
+      "sizes": "undefinedxundefined"
+    }
+  ],
+  "orientation": "portrait",
+  "start_url": "index.html",
+  "theme_color": "#007aff"
+}

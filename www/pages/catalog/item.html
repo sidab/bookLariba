@@ -1,0 +1,195 @@
+<template>
+
+    <div class="page">
+
+        <div class="navbar">
+
+            <div class="navbar-bg"></div>
+
+            <div class="navbar-inner">
+
+                <div class="left">
+
+                    <a href="#" class="link back">
+
+                        <i class="icon icon-back"></i>
+                        <span>Назад</span>
+
+                    </a>
+
+                </div>
+
+                <div class="title">{{book.title}}</div>
+
+            </div>
+
+        </div>
+
+        <div class="page-content">
+
+            <div class="bg-color-white padding">
+
+                <div class="item-image" style="background-image: url('{{book.image}}')"></div>
+
+            </div>
+
+            <div class="block-title block-title-medium">{{book.title}}</div>
+
+            <div class="block">
+
+                <div class="margin-vertical">
+
+                    <div class="block-title no-margin-left">Переплет:</div>
+
+                    <div class="pereplet">
+
+                        <button class="display-inline-block button button-outline button-active color-gray">Мягкий</button>
+
+                        <button class="display-inline-block button button-outline color-gray">Твердый</button>
+
+                    </div>
+
+                </div>
+
+                <button @click="addToCart" class="button button-fill button-large button-raised">
+
+                    <i class="icon f7-icons">cart_badge_plus</i>
+
+                    <span>Купить за {{book.price}} ₽</span>
+
+                </button>
+
+            </div>
+
+            <div class="block-title">Описание</div>
+
+            <div class="block block-strong">{{book.description}}</div>
+
+            <div class="block-title">Характеристики</div>
+
+            <div class="list">
+
+                <ul>
+
+                    <li class="item-content">
+
+                        <div class="item-inner">
+
+                            <div class="item-title">Автор</div>
+
+                            <div class="item-after">{{book.author}}</div>
+
+                        </div>
+
+                    </li>
+
+                    {{#each book.properties}}
+
+                        <li class="item-content">
+
+                            <div class="item-inner">
+
+                                <div class="item-title">{{name}}</div>
+
+                                <div class="item-after">{{value}}</div>
+
+                            </div>
+
+                        </li>
+
+                    {{/each}}
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</template>
+
+<style scoped>
+
+    {{this}} .item-image {
+        height: 300px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    {{this}} .block-title {
+        white-space: normal;
+             }
+
+    {{this}} .pereplet .button {
+        width: auto
+             }
+</style>
+
+<script>
+
+    return {
+
+        data: function () {
+
+            return {
+                book: []
+            }
+
+        },
+        methods: {
+            addToCart: function () {
+
+                app.dialog.alert('Вы успешно добавили товар в корзину!');
+
+            }
+        },
+        on: {
+
+            pageInit: function() {
+
+                var component = this;
+                var page = component.$el;
+
+                component.book = app.data.books.find(function (item) {
+
+                    return item.id == component.id;
+
+                });
+
+                component.$update(function () {
+
+                    setTimeout(function () {
+
+                        var photoBrowser = app.photoBrowser.create({
+                            photos: [component.book.image],
+                            routableModals: false,
+                            theme: 'dark'
+                        });
+
+                        page.find('.item-image').on('click', function () {
+
+                            photoBrowser.open(0);
+
+                        });
+
+                        page.find('.pereplet').find('.button').on('click', function () {
+
+                            page.find('.pereplet').find('.button').removeClass('button-active');
+
+                            $$(this).addClass('button-active');
+
+                        });
+
+                    });
+
+                });
+
+            }
+
+        }
+
+    }
+
+</script>

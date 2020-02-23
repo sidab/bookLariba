@@ -1,0 +1,213 @@
+<template>
+
+    <div class="page">
+
+        <div class="navbar">
+
+            <div class="navbar-bg"></div>
+
+            <div class="navbar-inner sliding">
+
+                <div class="left">
+
+                    <a href="#" class="link back">
+
+                        <i class="icon icon-back"></i>
+                        <span class="ios-only">Назад</span>
+
+                    </a>
+
+                </div>
+
+                <div class="title">Оформление заказа</div>
+
+            </div>
+
+        </div>
+
+        <div class="page-content">
+
+            <div class="list delivery-block display-none">
+
+                <ul>
+
+                    <li class="item-content item-input item-input-outline">
+
+                        <div class="item-inner">
+
+                            <div class="item-title item-floating-label">Адрес</div>
+
+                            <div class="item-input-wrap">
+
+                                <input type="text" class="adres" placeholder="ул.Акушинского...">
+                                <span class="input-clear-button"></span>
+
+                            </div>
+
+                        </div>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <div class="block-title block-title-medium">Оплата</div>
+
+            <div class="list">
+
+                <ul>
+
+                    <li>
+
+                        <label class="item-radio item-content">
+
+                            <input type="radio" name="pay-type" value="Картой" checked/>
+
+                            <i class="icon icon-radio"></i>
+
+                            <div class="item-inner">
+
+                                <div class="item-title">Картой онлайн</div>
+
+                            </div>
+
+                        </label>
+
+                    </li>
+
+                    <li>
+
+                        <label class="item-radio item-content">
+
+                            <input type="radio" name="pay-type" value="Наличными"/>
+
+                            <i class="icon icon-radio"></i>
+
+                            <div class="item-inner">
+
+                                <div class="item-title">Наличными</div>
+
+                            </div>
+
+                        </label>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <div class="block-title block-title-medium">Покупатель</div>
+
+            <div class="list">
+
+                <ul>
+
+                    <li class="item-content item-input item-input-outline">
+
+                        <div class="item-inner">
+
+                            <div class="item-title item-floating-label">ФИО</div>
+
+                            <div class="item-input-wrap">
+
+                                <input type="text" class="fio" placeholder="Магомедов Магомед Магомедович">
+                                <span class="input-clear-button"></span>
+
+                            </div>
+
+                        </div>
+
+                    </li>
+
+                    <li class="item-content item-input item-input-outline">
+
+                        <div class="item-inner">
+
+                            <div class="item-title item-floating-label">Телефон</div>
+
+                            <div class="item-input-wrap">
+
+                                <input type="text" class="phone" placeholder="+7(999)999-99-99">
+
+                            </div>
+
+                        </div>
+
+                    </li>
+
+                    <li class="item-content item-input item-input-outline">
+
+                        <div class="item-inner">
+
+                            <div class="item-title item-floating-label">Комментарий к заказу</div>
+
+                            <div class="item-input-wrap">
+
+                                <textarea class="comment" placeholder="Введите текст..."></textarea>
+                                <span class="input-clear-button"></span>
+
+                            </div>
+
+                        </div>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <div class="block">
+
+                <button @click="checkFields" class="button button-fill button-checkout button-raised button-large">
+
+                    <div class="preloader color-white display-none"></div>
+
+                    <span class="button-title">Оформить заказ</span>
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</template>
+
+<style scoped>
+
+</style>
+
+<script>
+
+    return {
+
+        data: function () {
+
+        },
+        methods: {
+            checkFields: function () {
+
+                app.dialog.alert('Ваш заказ оформлен.');
+
+            }
+        },
+        on: {
+
+            pageInit: function() {
+
+                var page = this.$el;
+
+                var phoneMask = new IMask(page.find('input.phone')[0], {
+                    mask: '+{7}(000)000-00-00'
+                });
+
+            }
+
+        }
+
+    }
+
+</script>

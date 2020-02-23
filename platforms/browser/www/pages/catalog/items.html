@@ -1,0 +1,148 @@
+<template>
+
+    <div class="page">
+
+        <div class="navbar no-border-bottom elevation-2">
+
+            <div class="navbar-bg"></div>
+
+            <div class="navbar-inner">
+
+                <div class="left">
+
+                    <a href="#" class="link back">
+
+                        <i class="icon icon-back"></i>
+                        <span>Назад</span>
+
+                    </a>
+
+                </div>
+
+                <div class="title">Деловая литература</div>
+
+                <div class="title-large">
+
+                    <div class="title-large-text">Деловая литература</div>
+
+                </div>
+
+                <div class="subnavbar">
+
+                    <form class="searchbar">
+
+                        <div class="searchbar-inner">
+
+                            <div class="searchbar-input-wrap">
+
+                                <input type="search" placeholder="Найти книгу, автора...">
+
+                                <i class="searchbar-icon"></i>
+
+                                <span class="input-clear-button"></span>
+
+                            </div>
+
+                            <span class="searchbar-disable-button">Отмена</span>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="page-content">
+
+            <div class="row items">
+
+                {{#each items}}
+
+                    <div @click="openBook('{{id}}')" class="col-50 item padding">
+
+                        <div class="item-image margin-bottom" style="background-image: url('{{image}}')"></div>
+
+                        <div class="item-author text-color-gray">{{author}}</div>
+
+                        <div class="item-title">{{title}}</div>
+
+                    </div>
+
+                {{/each}}
+
+            </div>
+
+        </div>
+
+    </div>
+
+</template>
+
+<style scoped>
+
+    {{this}} .items {
+
+    }
+
+    {{this}} .items .item {
+
+    }
+
+    {{this}} .items .item .item-image {
+                 height: 250px;
+                 background-repeat: no-repeat;
+                 background-size: contain;
+                 background-position: center;
+    }
+
+    {{this}} .items .item .item-author {
+
+    }
+
+    {{this}} .items .item .item-title {
+                 font-weight: 500;
+                 line-height: normal;
+             }
+
+</style>
+
+<script>
+
+    return {
+
+        data: function () {
+
+            return {
+                items: app.data.books
+            }
+
+        },
+        methods: {
+            openBook: function (id) {
+
+                app.views.current.router.navigate('/catalog/items/item', {
+                    context: {
+                        id: id
+                    }
+                });
+
+            }
+        },
+        on: {
+
+            pageInit: function() {
+
+                var component = this;
+                var page = this.$el;
+
+
+            }
+
+        }
+
+    }
+
+</script>

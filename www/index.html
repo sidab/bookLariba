@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+
+        <title>Book LaRiba</title>
+
+        <link rel="apple-touch-icon" href="icon.png" />
+        <link rel="stylesheet" href="css/framework7.min.css">
+        <link rel="stylesheet" href="css/icons.css">
+        <link rel="stylesheet" href="css/app.css">
+
+    </head>
+
+    <body>
+
+    <div id="app">
+
+        <div class="statusbar"></div>
+
+        <div class="views tabs">
+
+            <div class="toolbar tabbar-labels toolbar-bottom toolbar-menu">
+
+                <div class="toolbar-inner">
+
+                    <a href="#view-main" class="tab-link tab-link-active">
+
+                        <i class="icon f7-icons">house</i>
+                        <span class="tabbar-label">Главная</span>
+
+                    </a>
+
+                    <a href="#view-catalog" class="tab-link">
+
+                        <i class="icon f7-icons">search</i>
+                        <span class="tabbar-label">Каталог</span>
+
+                    </a>
+
+                    <a href="#view-cart" class="tab-link">
+
+                        <i class="icon f7-icons">cart<span class="badge bg-color-primary">2</span></i>
+                        <span class="tabbar-label">Корзина</span>
+
+                    </a>
+
+                    <a href="#view-favorites" class="tab-link">
+
+                        <i class="icon f7-icons">heart</i>
+                        <span class="tabbar-label">Избранное</span>
+
+                    </a>
+
+                    <a href="#view-stocks" class="tab-link">
+
+                        <i class="icon f7-icons">gift</i>
+                        <span class="tabbar-label">Акции</span>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="tab view tab-active" id="view-main"></div>
+            <div class="tab view" id="view-catalog"></div>
+            <div class="tab view" id="view-cart"></div>
+            <div class="tab view" id="view-favorites"></div>
+            <div class="tab view" id="view-stocks"></div>
+
+        </div>
+
+    </div>
+
+    <script src="cordova.js"></script>
+    <script src="js/framework7.min.js"></script>
+    <script src="js/imask.min.js" defer></script>
+    <script src="js/fastClicks.min.js" defer></script>
+    <script src="js/routes.js" defer></script>
+    <script src="js/templates.js" defer></script>
+    <script src="js/app.js" defer></script>
+
+    </body>
+
+</html>

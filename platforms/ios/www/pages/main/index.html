@@ -1,0 +1,305 @@
+<template>
+
+    <div class="page">
+
+        <form class="searchbar">
+
+            <div class="searchbar-inner">
+
+                <div class="searchbar-input-wrap">
+
+                    <input type="search" placeholder="Найти книгу, автора...">
+
+                    <i class="searchbar-icon"></i>
+
+                    <i class="icon f7-icons icon-barcode text-color-gray">barcode_viewfinder</i>
+
+                    <span class="input-clear-button"></span>
+
+                </div>
+
+                <span class="searchbar-disable-button">Отмена</span>
+
+            </div>
+
+        </form>
+
+        <div class="page-content">
+
+            <div class="swiper-container home-slider">
+
+                <div class="swiper-wrapper">
+
+                    <div class="swiper-slide" style="background-image: url('img/slides/1.jpg')"></div>
+
+                    <div class="swiper-slide" style="background-image: url('img/slides/2.jpg')"></div>
+
+                    <div class="swiper-slide" style="background-image: url('img/slides/3.jpg')"></div>
+
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="block-title block-title-medium">Новинки</div>
+
+                <div class="text-color-primary show-all">ВСЕ</div>
+
+            </div>
+
+            <div class="swiper-container books-slider margin-bottom">
+
+                <div class="swiper-wrapper">
+
+                    {{#each items}}
+
+                        <div data-id="{{id}}" class="swiper-slide book margin-left" style="background-image: url('{{image}}')"></div>
+
+                    {{/each}}
+
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="block-title block-title-medium">Популярное</div>
+
+                <div class="text-color-primary show-all">ВСЕ</div>
+
+            </div>
+
+            <div class="swiper-container books-slider margin-bottom">
+
+                <div class="swiper-wrapper">
+
+                    {{#each items}}
+
+                    <div data-id="{{id}}" class="swiper-slide book margin-left" style="background-image: url('{{image}}')"></div>
+
+                    {{/each}}
+
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="block-title block-title-medium">Бизнес-литература</div>
+
+                <div class="text-color-primary show-all">ВСЕ</div>
+
+            </div>
+
+            <div class="swiper-container books-slider margin-bottom">
+
+                <div class="swiper-wrapper">
+
+                    {{#each items}}
+
+                    <div data-id="{{id}}" class="swiper-slide book margin-left" style="background-image: url('{{image}}')"></div>
+
+                    {{/each}}
+
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="block-title block-title-medium">Художка</div>
+
+                <div class="text-color-primary show-all">ВСЕ</div>
+
+            </div>
+
+            <div class="swiper-container books-slider margin-bottom">
+
+                <div class="swiper-wrapper">
+
+                    {{#each items}}
+
+                    <div data-id="{{id}}" class="swiper-slide book margin-left" style="background-image: url('{{image}}')"></div>
+
+                    {{/each}}
+
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="block-title block-title-medium">Медицина</div>
+
+                <div class="text-color-primary show-all">ВСЕ</div>
+
+            </div>
+
+            <div class="swiper-container books-slider margin-bottom">
+
+                <div class="swiper-wrapper">
+
+                    {{#each items}}
+
+                    <div data-id="{{id}}" class="swiper-slide book margin-left" style="background-image: url('{{image}}')"></div>
+
+                    {{/each}}
+
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="block-title block-title-medium">Короткие книги</div>
+
+                <div class="text-color-primary show-all">ВСЕ</div>
+
+            </div>
+
+            <div class="swiper-container books-slider margin-bottom">
+
+                <div class="swiper-wrapper">
+
+                    {{#each items}}
+
+                    <div data-id="{{id}}" class="swiper-slide book margin-left" style="background-image: url('{{image}}')"></div>
+
+                    {{/each}}
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</template>
+
+<style scoped>
+
+    {{this}} .home-slider {
+        height: 180px;
+    }
+
+    {{this}} .home-slider .swiper-wrapper {
+        z-index: 0;
+        height: 180px;
+    }
+
+    {{this}} .home-slider .swiper-slide {
+        background-color: #eee;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: top center;
+        height: 180px;
+    }
+
+    {{this}} .searchbar .icon-barcode {
+                 position: absolute;
+                 top: 0px;
+                 z-index: 40;
+                 right: 0px;
+                 font-size: 20px;
+                 width: 40px;
+                 line-height: var(--f7-searchbar-height);
+                 height: 100%;
+    }
+
+             .ios {{this}} .searchbar .icon-barcode {
+                 line-height: calc(var(--f7-searchbar-height) - 10px);
+             }
+
+    {{this}} .books-slider {
+
+    }
+
+    {{this}} .books-slider .book {
+        height: 220px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    {{this}} .show-all {
+                 line-height: var(--f7-block-title-medium-line-height);
+                 margin-top: calc(var(--f7-block-margin-vertical) + 5px);
+                 margin-right: calc(var(--f7-block-padding-horizontal) + var(--f7-safe-area-right));
+    }
+
+</style>
+
+<script>
+
+    return {
+
+        data: function () {
+
+            return {
+                items: function () {
+
+                    var books = app.data.books.sort(function (a, b) {return Math.random() - 0.5;});
+
+                    return books;
+
+                }
+            }
+
+        },
+        methods: {
+
+        },
+        on: {
+
+            pageInit: function() {
+
+                var component = this;
+                var page = component.$el;
+
+                component.homeSlider = new Swiper(page.find('.home-slider'), {
+                    spaceBetween: 0,
+                    loop: true,
+                    autoplay: {
+                        delay: 7000,
+                    }
+                });
+
+                component.booksSlider = new Swiper(page.find('.books-slider'), {
+                    spaceBetween: 10,
+                    slidesPerView: 2.5,
+                    freeMode: true
+                });
+
+                page.find('.book').on('click', function () {
+
+                    var id = $$(this).data('id');
+
+                    app.views.current.router.navigate('/catalog/items/item', {
+                        context: {
+                            id: id
+                        }
+                    });
+
+                });
+
+                page.find('.show-all').on('click', function () {
+
+                    app.views.current.router.navigate('/catalog/items');
+
+                });
+
+                page.find('.icon-barcode').on('click', function () {
+
+                    app.methods.barcode();
+
+                });
+
+            }
+
+        }
+
+    }
+
+</script>

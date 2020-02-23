@@ -1,0 +1,184 @@
+<template>
+
+    <div class="page" data-name="cart">
+
+        <div class="navbar navbar-large">
+
+            <div class="navbar-bg"></div>
+
+            <div class="navbar-inner sliding">
+
+                <div class="title">Корзина</div>
+
+                <div class="title-large">
+
+                    <div class="title-large-text">Корзина</div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="page-content">
+
+            <div class="items">
+
+                <div class="list media-list">
+
+                    <ul>
+
+                        {{#each items}}
+
+                        <li>
+
+                            <div class="item-link item item-content">
+
+                                <div class="item-media margin-top" style="background-image:url({{image}})"></div>
+
+                                <div class="item-inner">
+
+                                    <div class="item-title">
+
+                                        <div>{{title}}</div>
+
+                                        <div class="stepper margin-top stepper-small stepper-fill count">
+
+                                            <div class="stepper-button-minus"></div>
+
+                                            <div class="stepper-input-wrap">
+
+                                                <input type="text" class="stepper-input" value="1" min="1" max="100" step="1" readonly>
+
+                                            </div>
+
+                                            <div class="stepper-button-plus"></div>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="item-subtitle margin-top">
+
+                                        <span>{{price}} ₽</span>
+
+                                    </div>
+
+                                    <div class="margin-top">
+
+                                        <button class="button float-right button-fill width-auto button-small remove color-red">Удалить</button>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </li>
+
+                        {{/each}}
+
+                    </ul>
+
+                </div>
+
+                <div class="block block-strong">
+
+                    <div class="row margin-bottom">
+
+                        <div>Доставка:</div>
+
+                        <div>
+
+                            <span class="sum">Бесплатно</span>
+
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div>Итого:</div>
+
+                        <div>
+
+                            <span class="sum">845</span>р.
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="block">
+
+                    <button @click="checkout" class="button button-fill button-checkout button-raised button-large">Оформить заказ</button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</template>
+
+<style scoped>
+
+    {{this}} {
+        background: #f9f9f9;
+    }
+
+    {{this}} .item .item-media {
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        width: 100px;
+        height: 100px;
+    }
+
+    {{this}} .item  .item-title {
+        white-space: normal;
+        font-size: 14px;
+    }
+
+    {{this}} .item  .item-subtitle span {
+        font-weight: bold;
+        font-size: 18px;
+    }
+
+</style>
+
+<script>
+
+    return {
+
+        data: function () {
+
+            return {
+                items: app.data.books.slice(0, 2)
+            }
+
+        },
+        methods: {
+            checkout: function () {
+
+                app.views.current.router.navigate('/cart/checkout');
+
+            }
+        },
+        on: {
+
+            pageInit: function() {
+
+                var component = this;
+                var page = this.$el;
+
+            }
+
+        }
+
+    }
+
+</script>
